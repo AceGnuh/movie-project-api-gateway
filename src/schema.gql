@@ -1,0 +1,59 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Film {
+  filmId: String!
+  title: String!
+  description: String
+  status: Boolean
+  view: Float
+  order: Float
+  thumbnail: String
+  path: String
+  director: String
+  duration: Float
+  releasedDate: DateTime
+  createdAt: DateTime
+  modifiedAt: DateTime
+  deletedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getAllFilms(key: String): [Film!]!
+  getFilmById(id: String!): Film!
+}
+
+type Mutation {
+  createFilm(createFilmDTO: CreateFilmDTO!): Film!
+  updateFilm(updateFilmDTO: UpdateFilmDTO!): Film!
+  deleteFilm(id: String!): Film!
+}
+
+input CreateFilmDTO {
+  title: String!
+  description: String
+  thumbnail: String
+  duration: Float
+  path: String
+  order: Float
+  status: Boolean
+  releaseDate: DateTime
+}
+
+input UpdateFilmDTO {
+  title: String
+  description: String
+  thumbnail: String
+  duration: Float
+  path: String
+  order: Float
+  status: Boolean
+  releaseDate: DateTime
+  id: String!
+}
